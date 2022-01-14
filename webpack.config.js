@@ -2,25 +2,21 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-let mode = 'development';
-
-if (process.env.NODE_ENV === 'production') {
-  mode = 'production';
-}
-
-console.log('mode: ' + mode);
+const mode =
+  process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 module.exports = {
   mode,
   output: {
     filename: '[name].[contenthash].js',
-    clean: true,
+    clean: mode === 'production',
   },
   devtool: 'source-map',
   plugins: [
     new MiniCssExtractPlugin({filename: '[name].[contenthash].css'}),
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      minify: mode === 'production',
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
