@@ -12,7 +12,15 @@ module.exports = {
   },
   devtool: mode === 'development' ? 'source-map' : false,
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    new MiniCssExtractPlugin({filename: '[name].[contenthash].css'}),
+    // new HtmlWebpackPlugin({
+    //   temaplate: './src/assets/dashboard.html',
+    //   minify: mode === 'production',
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: './src/assets/dashboard.html',
+    //   minify: mode === 'production',
+    // }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       minify: mode === 'production',
