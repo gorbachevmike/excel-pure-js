@@ -1,0 +1,29 @@
+{
+  "name": "excel-pure-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gorbachevmike/excel-pure-js",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack serve --open",
+    "build": "cross-env NODE_ENV=production webpack"
+  },
+  "dependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.8",
+    "babel-loader": "^8.2.3",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.7",
+    "sass": "^1.48.0",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
