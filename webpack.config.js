@@ -11,7 +11,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     clean: mode === 'production',
   },
-  devtool: 'source-map',
+  devtool: mode === 'development' ? 'source-map' : false,
   plugins: [
     new MiniCssExtractPlugin({filename: '[name].[contenthash].css'}),
     new HtmlWebpackPlugin({
@@ -30,21 +30,6 @@ module.exports = {
         use: [
           mode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  [
-                    'postcss-preset-env',
-                    {
-                      // Options
-                    },
-                  ],
-                ],
-              },
-            },
-          },
           'sass-loader',
         ],
       },
